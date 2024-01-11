@@ -5,7 +5,7 @@ import speech_recognition as sr
 from os import path
 
 # obtenir le chemin d'accès exact du fichier audio à transcrire
-AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "conversation-téléphonique.wav")
+AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "Affecter_planning_individuel.wav")
 
 # création d'un objet qui s'occupe de la reconnaissance vocale
 r = sr.Recognizer()
