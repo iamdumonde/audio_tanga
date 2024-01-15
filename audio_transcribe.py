@@ -15,7 +15,7 @@ with sr.AudioFile(AUDIO_FILE) as source:
     # prends le temps de lire l'entièreté de
     audio = r.record(source) 
 
- #trouver un nom pour le fichier txt
+#trouver un nom pour le fichier txt
 txt_file = AUDIO_FILE.replace(".wav", ".txt")
 print(txt_file)
     
