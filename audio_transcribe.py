@@ -10,6 +10,8 @@ AUDIO_FILE = path.join(path.dirname(path.realpath(__file__)), "Affecter_planning
 # création d'un objet qui s'occupe de la reconnaissance vocale
 r = sr.Recognizer()
 
+# all = dir(sr)
+# print(all)
 # ouverture du fichier audio avec le bloc "with"
 with sr.AudioFile(AUDIO_FILE) as source:
     # prends le temps de lire l'entièreté de
@@ -26,17 +28,22 @@ try:
     text = r.recognize_google(audio, language="fr-FR")
     print("Résulat de SpeechRecognition : " + text)
     
+    # ramener les transcription à la ligne
+    # lines = text.split("\n")
+    
     # #vérification si le fichier .txt existe ou non
     if path.exists(txt_file):
         #ouverture du fichier .txt pour mise à jour
         with open(txt_file, "a") as f:
-            #Ecrire le texte transcrit dans le fichier txt
-            f.write(text + "\n")
+            #Ecrire le texte transcrit dans le fichier txt par ligne
+            for line in text.split("\n"):            
+                f.write(line)
         print('exists')
     else:
         #créer un nouveau fichier 
         with open(txt_file, "w") as f:
-            f.write(text)
+            for line in text.split("\n"):
+                f.write(line)
         print('existsno')
 
 # permet de faire ressortir les erreurs éventuelles
